@@ -33,6 +33,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/edit")
+    @RequiresPermissions("employee:edit")
     @PermissionName("员工编辑")
     public String edit() throws  Exception{
         System.out.println("执行了员工编辑....");

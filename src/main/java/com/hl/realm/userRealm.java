@@ -43,6 +43,7 @@ public class userRealm extends AuthorizingRealm {
         if(user==null){
             return null;
         }
+        //模拟查询数据库
         List<String> permission =new ArrayList<>();
         if("zhangsan".equals(user.getUsername())){
             permission.add("employee:save");
@@ -51,6 +52,29 @@ public class userRealm extends AuthorizingRealm {
         }
         SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
         info.addStringPermissions(permission);
+
+
+        /* 该例子是查询数据库的例子
+         * @Author HL
+         * @Description //TODO
+         * @Date 14:24 2020/2/6
+         * */
+         /* List<String> permissions = new ArrayList<String>();
+        List<String> roles = new ArrayList<>();
+        if("admin".equals(user.getUsername())){
+            //拥有所有权限
+            permissions.add("*:*");
+            //查询所有角色
+            roles = roleDAO.getAllRoleSn();
+        }else{
+            //根据用户id查询该用户所具有的角色
+            roles = roleDAO.getRoleSnByUserId(user.getId());
+            //根据用户id查询该用户所具有的权限
+            permissions = permissionDAO.getPermissionResourceByUserId(user.getId());
+        }
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.addStringPermissions(permissions);
+        info.addRoles(roles);*/
         return info;
     }
 
@@ -58,7 +82,6 @@ public class userRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = (String) token.getPrincipal();
-
         user user = userDao.selectByUserName(username);
         if(user==null){
             return null;
