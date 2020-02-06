@@ -22,13 +22,11 @@
         <property name="cacheManager" ref="cacheManager"></property>
     </bean>
 
-
+    <!--定义表单过滤器-->
     <bean id="formAuthenticationFilter" class="com.hl.Filter.loginFormAuthenticationFilter">
         <property name="usernameParam" value="username"/>
         <property name="passwordParam" value="password"/>
         <property name="rememberMeParam" value="rememberMe"/>
-    <!--    <property name="loginUrl" value="/login"/>
-        <property name="successUrl" value="/main"/>-->
     </bean>
 
     <!-- 定义ShiroFilter -->
@@ -37,7 +35,6 @@
         <property name="loginUrl" value="/login"/>
         <property name="unauthorizedUrl" value="/nopermission.jsp"/>
 
-        <!--<property name="unauthorizedUrl" value="/unauthorized.jsp"/>-->
         <property name="filters">
             <util:map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>

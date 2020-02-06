@@ -29,7 +29,6 @@ public class userController {
 
 
     @RequestMapping("toShowUser")
-    @RequiresPermissions("userController:toShowUser")
     public String toShowUser(Model model){
         person p = pm.selectByPrimaryKey(1);
         model.addAttribute("user",p.toString());

@@ -9,6 +9,11 @@
   <sql id="Base_Column_List" >
     id, name, resource
   </sql>
+
+  <select id="selectAllResource" resultType="java.lang.String">
+    select resource from permission
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />

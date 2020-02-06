@@ -6,17 +6,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-
     <!-- 开启aop，对类代理 -->
     <aop:config proxy-target-class="true"></aop:config>
-    <!--1:配置DI注解解析器-->
-    <context:annotation-config/>
     <!--2:配置IoC注解解析器-->
-    <context:component-scan base-package="com.hl.controller"/>
+    <context:component-scan base-package="com.hl"/>
     <!--3：配置mvc注解解析器-->
-    <mvc:annotation-driven/>
-    <!--4：静态资源处理-->
-    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven></mvc:annotation-driven>
 
     <!-- 视图解析器 -->
     <bean
@@ -26,8 +21,5 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp"></property>
     </bean>
-
-
-
 
 </beans>

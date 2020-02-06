@@ -9,6 +9,7 @@
  */
 package com.hl.mapper.Impl;
 
+import com.hl.entity.permission;
 import com.hl.entity.person;
 import com.hl.mapper.personMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class personMapperImpl implements personMapper {
 
     @Autowired
     personMapper pm;
+
 
     @Override
     public person selectByPrimaryKey(Integer id) {
